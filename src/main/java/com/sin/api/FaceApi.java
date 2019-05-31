@@ -93,6 +93,7 @@ public class FaceApi {
             httpProfile.setEndpoint(TENCENT_API);
 
             ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setSignMethod("TC3-HMAC-SHA256"); // 指定签名算法（默认为 HmacSHA256）
             clientProfile.setHttpProfile(httpProfile);
 
             FaceidClient client = new FaceidClient(cred, TENCENT_REGION, clientProfile);

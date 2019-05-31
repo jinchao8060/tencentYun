@@ -52,6 +52,7 @@ public class IDCardOCRApi {
      */
     public String getDistinguishIDCard(IDCardRequest idCardOCRRequest) {
 
+        IDCardOCRResponse resp = null;
 
         try {
             Credential cred = new Credential(TENCENT_SECRETID, TENCENT_SECRETKEY);
@@ -59,6 +60,7 @@ public class IDCardOCRApi {
             httpProfile.setEndpoint(TENCENT_API);
 
             ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setSignMethod("TC3-HMAC-SHA256"); // 指定签名算法（默认为 HmacSHA256）
             clientProfile.setHttpProfile(httpProfile);
 
             OcrClient client = new OcrClient(cred, TENCENT_REGION, clientProfile);
@@ -67,22 +69,19 @@ public class IDCardOCRApi {
 
             String params = mapper.writeValueAsString(idCardOCRRequest);
 
-
-
             //String params = ""; //{"ImageBase64":"123454","ImageUrl":"123"}
             IDCardOCRRequest req = IDCardOCRRequest.fromJsonString(params, IDCardOCRRequest.class);
 
-            IDCardOCRResponse resp = client.IDCardOCR(req);
+            resp = client.IDCardOCR(req);
 
             System.out.println(IDCardOCRRequest.toJsonString(resp));
-            return  IDCardOCRRequest.toJsonString(resp);
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
         }
-        return null;
+        return IDCardOCRRequest.toJsonString(resp);
     }
 
     public static void main(String[] args) {

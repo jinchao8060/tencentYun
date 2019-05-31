@@ -47,7 +47,7 @@ public class IDCardController {
                             e.printStackTrace();
                         }
                     }
-                }
+                 }
             }
 
             Map<String, String[]> paramterMap = multipartRequest.getParameterMap();
