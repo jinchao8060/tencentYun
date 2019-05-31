@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form action="/face/faceInspect" method="post" enctype="multipart/form-data">
+    file<input type="file" class="file1" name="file" />
+    idCard<input type="text" name="idCard"/>
+    name<input type="text" name="name"/>
+    livenessType<input type="text" name="livenessType"/>
+    <button type="submit" class="but1">上传</button>
+</form>
+
+
+<form action="/idCard/idCardOcr" method="post" enctype="multipart/form-data">
+    file<input type="file" class="file1" name="file" />
+    Cardside<input type="text" name="cardside"/>
+    <button type="submit" class="but1">上传</button>
+</form>
+
+
+
+<!--application/json-->
+</body>
+</html>

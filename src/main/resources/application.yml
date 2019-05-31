@@ -1,0 +1,15 @@
+
+tencent:
+  secretId: 12
+  secretKey: 23
+  api: faceid.tencentcloudapi.com
+  region: ap-beijing
+
+spring:
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 20MB
+
+
+
