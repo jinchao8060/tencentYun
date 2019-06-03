@@ -60,7 +60,8 @@ public class IDCardOCRApi {
             httpProfile.setEndpoint(TENCENT_API);
 
             ClientProfile clientProfile = new ClientProfile();
-            clientProfile.setSignMethod("TC3-HMAC-SHA256"); // 指定签名算法（默认为 HmacSHA256）
+            // 指定签名算法（默认为 HmacSHA256）
+            clientProfile.setSignMethod("TC3-HMAC-SHA256");
             clientProfile.setHttpProfile(httpProfile);
 
             OcrClient client = new OcrClient(cred, TENCENT_REGION, clientProfile);
@@ -81,7 +82,10 @@ public class IDCardOCRApi {
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
         }
-        return IDCardOCRRequest.toJsonString(resp);
+        if (resp != null) {
+            return IDCardOCRRequest.toJsonString(resp);
+        }
+        return null;
     }
 
     public static void main(String[] args) {

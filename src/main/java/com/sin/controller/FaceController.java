@@ -24,10 +24,17 @@ import java.util.Map;
 @RequestMapping("face")
 public class FaceController {
 
+    /**
+     * 动作顺序
+     */
     private String validateData = "1,2" ;
 
+    private final FaceApi faceApi;
+
     @Autowired
-    private FaceApi faceApi;
+    public FaceController(FaceApi faceApi) {
+        this.faceApi = faceApi;
+    }
 
     /**
      * 人脸核身
@@ -69,7 +76,7 @@ public class FaceController {
             faceInspectRequest.setValidateData(validateData);
             faceInspectRequest.setVideoBase64(base64);
 
-            String s = faceApi.FaceInspect(faceInspectRequest);
+            String s = faceApi.faceinspect(faceInspectRequest);
             System.out.println("s = " + s);
 
             return s;

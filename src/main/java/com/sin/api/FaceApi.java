@@ -83,7 +83,7 @@ public class FaceApi {
      *
      * @return
      */
-    public String FaceInspect(FaceInspectRequest faceInspectRequest) {
+    public String faceinspect(FaceInspectRequest faceInspectRequest) {
 
         LivenessRecognitionResponse resp = null;
         try {
@@ -111,7 +111,10 @@ public class FaceApi {
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
         }
-        return LivenessRecognitionRequest.toJsonString(resp);
+        if (resp != null) {
+            return LivenessRecognitionRequest.toJsonString(resp);
+        }
+        return null;
     }
 
     /**

@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 身份证验证输出参数实体类
+ *
  * @author zk
  */
 public class IDCardResponse implements Serializable {
@@ -62,7 +63,7 @@ public class IDCardResponse implements Serializable {
      * IdCard，身份证照片，请求 CropIdCard 时返回；
      * Portrait，人像照片，请求 CropPortrait 时返回；
      * WarnInfos，告警信息（Code - 告警码，Msg - 告警信息内容），识别出翻拍件或复印件时返回。
-     *
+     * <p>
      * Code 告警码列表和释义：
      * -9103 身份证翻拍告警，
      * -9102 身份证复印件告警。

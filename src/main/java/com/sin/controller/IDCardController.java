@@ -5,10 +5,7 @@ import com.sin.api.IDCardOCRApi;
 import com.sin.dto.IDCardRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 import sun.misc.BASE64Encoder;
@@ -23,8 +20,12 @@ import java.util.Map;
 @RequestMapping("idCard")
 public class IDCardController {
 
+    private final IDCardOCRApi idCardOCRApi;
+
     @Autowired
-    private IDCardOCRApi idCardOCRApi;
+    public IDCardController(IDCardOCRApi idCardOCRApi) {
+        this.idCardOCRApi = idCardOCRApi;
+    }
 
 
     @PostMapping("idCardOcr")
@@ -47,7 +48,7 @@ public class IDCardController {
                             e.printStackTrace();
                         }
                     }
-                 }
+                }
             }
 
             Map<String, String[]> paramterMap = multipartRequest.getParameterMap();
