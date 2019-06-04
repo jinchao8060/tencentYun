@@ -11,5 +11,7 @@ spring:
       max-request-size: 100MB
       max-file-size: 20MB
 
-
-
+file:
+  staticAccessPath: /upload/**
+  uploadFolder: D://upload/
+  url: /upload/

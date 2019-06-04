@@ -65,7 +65,7 @@ public class IDCardRequest implements Serializable {
      * ReshootWarn，翻拍告警，bool 类型。
      */
     @JsonProperty("Config")
-    private String config = "{\"CopyWarn\":true,\"ReshootWarn\":true}";
+    private String config = "{\"CopyWarn\":true,\"ReshootWarn\":true,\"CropIdCard\":true,\"CropPortrait\":true}";
     //    private String config;
 
     public String getAction() {

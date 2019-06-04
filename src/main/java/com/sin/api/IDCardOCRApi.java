@@ -70,7 +70,7 @@ public class IDCardOCRApi {
 
             String params = mapper.writeValueAsString(idCardOCRRequest);
 
-            //String params = ""; //{"ImageBase64":"123454","ImageUrl":"123"}
+            /* String params = ""; //{"ImageBase64":"123454","ImageUrl":"123"} */
             IDCardOCRRequest req = IDCardOCRRequest.fromJsonString(params, IDCardOCRRequest.class);
 
             resp = client.IDCardOCR(req);
