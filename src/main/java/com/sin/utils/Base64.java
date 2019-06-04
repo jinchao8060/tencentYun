@@ -46,6 +46,6 @@ public class Base64 {
     public static void main(String[] args) {
         String uploadFolder = "c://upload//aaa86e2add-561c-446b-99aa-9970d5f72598.jpg";
         String imgFileToBase64 = getImgFileToBase64(uploadFolder);
-        System.out.println("base64转码成功："+imgFileToBase64);
+        System.out.println("base64转码成功：" + imgFileToBase64);
     }
 }

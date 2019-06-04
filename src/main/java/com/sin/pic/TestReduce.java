@@ -11,11 +11,12 @@ public class TestReduce {
 
     /**
      * 采用指定宽度、高度或压缩比例 的方式对图片进行压缩
-     * @param imgsrc 源图片地址
-     * @param imgdist 目标图片地址
-     * @param widthdist 压缩后图片宽度（当rate==null时，必传）
+     *
+     * @param imgsrc     源图片地址
+     * @param imgdist    目标图片地址
+     * @param widthdist  压缩后图片宽度（当rate==null时，必传）
      * @param heightdist 压缩后图片高度（当rate==null时，必传）
-     * @param rate 压缩比例
+     * @param rate       压缩比例
      */
     public static void reduceImg(String imgsrc, String imgdist, int widthdist,
                                  int heightdist, Float rate) {
@@ -58,14 +59,13 @@ public class TestReduce {
     /**
      * 获取图片宽度
      *
-     * @param file
-     *            图片文件
+     * @param file 图片文件
      * @return 宽度
      */
     public static int[] getImgWidth(File file) {
         InputStream is = null;
         BufferedImage src = null;
-        int result[] = { 0, 0 };
+        int result[] = {0, 0};
         try {
             is = new FileInputStream(file);
             src = javax.imageio.ImageIO.read(is);
@@ -81,15 +81,15 @@ public class TestReduce {
 
     public static void main(String[] args) {
         /**
-         * d://3.jpg 源图片
-         * d://31.jpg 目标图片
+         * c://pic//456.jpg 源图片
+         * c://pic//890.jpg 目标图片
          * 压缩宽度和高度都是1000
          *
          */
         System.out.println("压缩图片开始...");
         File srcfile = new File("c://pic//456.jpg");
         System.out.println("压缩前srcfile size:" + srcfile.length());
-        reduceImg("c://pic//456.jpg", "c://pic//890.jpg", 1000, 1000,null);
+        reduceImg("c://pic//456.jpg", "c://pic//890.jpg", 1000, 1000, null);
         File distfile = new File("c://890.jpg");
         System.out.println("压缩后distfile size:" + distfile.length());
 
