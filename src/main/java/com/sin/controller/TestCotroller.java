@@ -51,7 +51,7 @@ public class TestCotroller {
             //压缩图片，将上传的图片和压缩后的图片存到本地
             TestReduce.reduceImg(uploadFolder + "//" + s1, uploadFolder + "//aa" + s1, 1000, 1000, null);
             logger.info("压缩前图片名称：{}", s1);
-            logger.info("压缩后图片名称：{}", "//aa" + s1);
+            logger.info("压缩后图片名称：{}", "aa" + s1);
             IDCardRequest idCardRequest = new IDCardRequest();
             String imgFileToBase64 = Base64.getImgFileToBase64(uploadFolder + "//aa" + s1);
             idCardRequest.setImagebase64(imgFileToBase64);
